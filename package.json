@@ -21,9 +21,12 @@
     "start:backend": "npm run start --workspace=backend",
     "start:frontend": "npm run dev --workspace=frontend",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "test": "jest",
+    "test": "jest tests/frontend --env=jsdom && jest tests/backend",
     "test:frontend": "jest tests/frontend --env=jsdom",
-    "test:backend": "jest tests/backend"
+    "test:backend": "jest tests/backend",
+    "coverage": "jest --coverage --env=jsdom tests/frontend && jest --coverage tests/backend",
+    "coverage:frontend": "jest --coverage --env=jsdom tests/frontend",
+    "coverage:backend": "jest --coverage tests/backend"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.25.9",
