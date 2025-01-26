@@ -10,7 +10,7 @@ const useCurrencyConverter = () => {
   const [sourceCurrency, setSourceCurrency] = useState('USD'); // State for the source currency
   const [targetCurrency, setTargetCurrency] = useState('EUR'); // State for the target currency
   const [amount, setAmount] = useState('1'); // State for the input amount
-  const [convertedAmount, setConvertedAmount] = useState(null); // State for the converted amount
+  const [convertedCurrency, setConvertedCurrency] = useState(null); // State for the converted amount
   const [error, setError] = useState(''); // State for error messages
   const [currencyCodes, setCurrencyCodes] = useState([]); // State for supported currency codes
 
@@ -19,15 +19,16 @@ const useCurrencyConverter = () => {
   /**
    * Fetches the converted amount from the API
    */
-  const fetchConvertedAmount = useCallback(async () => {
+  const fetchConvertedCurrency = useCallback(async () => {
     if (!debouncedAmount || !sourceCurrency || !targetCurrency) return;
 
     try {
       setError('');
       const response = await exchangeCurrency(sourceCurrency, targetCurrency, parseFloat(debouncedAmount));
-      setConvertedAmount(response.data.conversion_result);
+      setConvertedCurrency(response.data);
+      console.log(response.data)
     } catch (err) {
-      setConvertedAmount(null);
+      setConvertedCurrency(null);
       setError(err.response?.data?.error || 'Error converting currency');
     }
   }, [debouncedAmount, sourceCurrency, targetCurrency]);
@@ -69,8 +70,8 @@ const useCurrencyConverter = () => {
 
   // Automatically fetches converted amount whenever input or currencies change
   useEffect(() => {
-    fetchConvertedAmount();
-  }, [debouncedAmount, fetchConvertedAmount]);
+    fetchConvertedCurrency();
+  }, [debouncedAmount, fetchConvertedCurrency]);
 
   // Fetches currency codes on component mount
   useEffect(() => {
@@ -81,7 +82,7 @@ const useCurrencyConverter = () => {
     sourceCurrency,
     targetCurrency,
     amount,
-    convertedAmount,
+    convertedCurrency,
     error,
     currencyCodes,
     setSourceCurrency,

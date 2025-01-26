@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import useCurrencyConverter from '../../frontend/src/hooks/useCurrencyConverter'; // Adjust this path
-import CurrencyConverter from '../../frontend/src/components/currencyConverter'; // Adjust this path
-import userEvent from "@testing-library/user-event";
+import useCurrencyConverter from '../../frontend/src/hooks/useCurrencyConverter';
+import CurrencyConverter from '../../frontend/src/components/currencyConverter';
 
 jest.mock('../../frontend/src/hooks/useCurrencyConverter'); // Mock the hook outside the test block
 
@@ -16,7 +15,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: '',
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -51,7 +50,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: 100,
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -86,7 +85,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: '', // start with an empty string
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -119,7 +118,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: '',
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -148,7 +147,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: '',
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -177,7 +176,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: '',
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: [
         ['USD', 'United States Dollar'],
@@ -210,7 +209,7 @@ describe('CurrencyConverter Component', () => {
       sourceCurrency: 'USD',
       targetCurrency: 'EUR',
       amount: 100,
-      convertedAmount: 85,
+      convertedCurrency: null,
       error: null,
       currencyCodes: ['USD', 'EUR', 'GBP'],
       setSourceCurrency: jest.fn(),

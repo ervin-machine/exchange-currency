@@ -1,6 +1,7 @@
 import React from 'react';
 import useCurrencyConverter from '../../hooks/useCurrencyConverter';
 import CurrencySelect from '../commonComponents/currencySelect';
+import ConvertedCurrency from '../commonComponents/convertedCurrency';
 
 /**
  * Main component for currency conversion
@@ -11,15 +12,16 @@ const CurrencyConverter = () => {
     sourceCurrency,
     targetCurrency,
     amount,
-    convertedAmount,
+    convertedCurrency,
     error,
     currencyCodes,
     setSourceCurrency,
     setTargetCurrency,
-    handleAmount, // This should be connected to the input's onChange
+    handleAmount,
     handleSwap
   } = useCurrencyConverter();
 
+  console.log(convertedCurrency)
   return (
     <div className="flex flex-col items-center space-y-4 justify-center content-center h-full">
       {/* Source Currency Dropdown */}
@@ -57,11 +59,9 @@ const CurrencyConverter = () => {
       </div>
 
       {/* Display Converted Amount */}
-      {convertedAmount !== null && (
-        <div>
-          <h3>Converted Amount: {convertedAmount} {targetCurrency}</h3>
-        </div>
-      )}
+      {convertedCurrency !== null && 
+        <ConvertedCurrency convertedCurrency={convertedCurrency} />
+      }
 
       {/* Error Message */}
       {error && <div style={{ color: 'red' }}>{error}</div>}
