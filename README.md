@@ -3,7 +3,7 @@
 
 ## **Website**
 
-[Currency Exchange Platform Repository]()
+[Exchange Currency Platform Repository](https://github.com/ervin-machine/exchange-currency)
 
 ## **Table of Contents**
 
@@ -66,8 +66,8 @@ Follow these instructions to get a local copy of the project up and running for 
 #### Step 1: Clone the Repository
 Clone the project to your local machine:
 ```bash
-$ git clone
-$ cd
+$ git clone https://github.com/ervin-machine/exchange-currency.git
+$ cd exchange-currency
 ```
 
 #### Step 2: Install Dependencies
@@ -98,7 +98,7 @@ $ npm run start:frontend
 #### Run in Development Mode
 Backend with nodemon:
 ```bash
-$ npm run dev --workspace=currency-exchange-backend
+$ npm run dev --workspace=backend
 ```
 
 ---
@@ -138,12 +138,12 @@ To generate a test coverage report for either frontend or backend, use:
 
 For frontend:
 ```bash
-$ npm run coverage --workspace=frontend
+$ npm run coverage:frontend
 ```
 
 For backend:
 ```bash
-$ npm run coverage --workspace=currency-exchange-backend
+$ npm run coverage:backend
 ```
 
 
