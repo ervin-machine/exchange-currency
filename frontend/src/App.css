@@ -1,0 +1,9 @@
+body {
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(144,163,188,1) 0%, rgba(117,117,145,1) 0%, rgba(144,170,176,1) 100%);
+}
+
+#root {
+    height: 100vh;
+}

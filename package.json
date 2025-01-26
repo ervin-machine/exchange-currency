@@ -1,0 +1,40 @@
+{
+  "main": "index.js",
+  "name": "project",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SS-FS-58/nyxcipher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SS-FS-58/nyxcipher/issues"
+  },
+  "homepage": "https://github.com/SS-FS-58/nyxcipher#readme",
+  "scripts": {
+    "start:backend": "npm run start --workspace=backend",
+    "start:frontend": "npm run dev --workspace=frontend",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "test": "jest tests/frontend --env=jsdom && jest tests/backend",
+    "test:frontend": "jest tests/frontend --env=jsdom",
+    "test:backend": "jest tests/backend",
+    "coverage": "jest --coverage --env=jsdom tests/frontend && jest --coverage tests/backend",
+    "coverage:frontend": "jest --coverage --env=jsdom tests/frontend",
+    "coverage:backend": "jest --coverage tests/backend"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-react": "^7.26.3",
+    "babel-jest": "^29.7.0"
+  }
+}
