@@ -1,6 +1,6 @@
 {
   "main": "index.js",
-  "name": "project",
+  "name": "exhange-currency",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -9,14 +9,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SS-FS-58/nyxcipher.git"
+    "url": "git+https://github.com/ervin-machine/exchange-currency.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SS-FS-58/nyxcipher/issues"
+    "url": "https://github.com/ervin-machine/exchange-currency/issues"
   },
-  "homepage": "https://github.com/SS-FS-58/nyxcipher#readme",
+  "homepage": "https://github.com/ervin-machine/exchange-currency#readme",
   "scripts": {
     "start:backend": "npm run start --workspace=backend",
     "start:frontend": "npm run dev --workspace=frontend",
