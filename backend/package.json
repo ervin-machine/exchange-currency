@@ -1,5 +1,5 @@
 {
-  "name": "currency-exchange-backend",
+  "name": "nyxcipher-backend-1.1.0",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,16 +8,19 @@
     "dev": "nodemon server.js",
     "test": "jest"
   },
+  "repository": {
+    "type": "bitbucket"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://bitbucket.org/blockchain_work/nyxchiper_repo/src/main/",
   "dependencies": {
-    "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
+    "crypto": "^1.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
@@ -25,14 +28,21 @@
     "express-session": "^1.17.3",
     "flowbite": "^2.3.0",
     "fs": "^0.0.1-security",
+    "googleapis": "^109.0.1",
     "http": "0.0.1-security",
-    "http-status": "^2.1.0",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.8.0",
+    "mongoose-unique-validator": "^3.1.0",
     "nodemailer": "^6.8.0",
     "os": "^0.1.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "request": "^2.88.2",
-    "util": "^0.12.5"
+    "sqlite3": "^5.1.7",
+    "util": "^0.12.5",
+    "web3": "^4.11.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",

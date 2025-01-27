@@ -1,41 +1,33 @@
 const express = require('express');
 const app = express();
+// const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+// const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 const server = require('http').createServer(app)
 const bodyParser = require('body-parser')
 require('express-async-errors')
 const cors = require('cors')
-const routes = require('./routes');
 
-// Define allowed origins (e.g., http://localhost:3000 for React frontend)
-const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5173'];
-
-// CORS configuration
-const corsOptions = {
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    target: 'http://localhost:5000/', //original url
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
-    credentials: true, // Allow cookies or authorization headers
-    optionsSuccessStatus: 204, // For legacy browsers
-    changeOrigin: true, 
-    //secure: false,
-    onProxyRes: function (proxyRes, req, res) {
-       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
-    }
-};
-
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 var isProduction = process.env.NODE_ENV === 'production';
+
+//------------ Passport Configuration ------------//
+require('./config/passport')(passport);
+
+//------------ DB Configuration ------------//
+const db = require('./config/key').MongoURI;
+
+//------------ Mongo Connection ------------//
+mongoose.set("strictQuery", false);
+mongoose.connect(db)
+    .then(() => console.log("Successfully connected to MongoDB"))
+    .catch(err => console.log(err));
 
 //------------ Express session Configuration ------------//
 app.use(
@@ -47,8 +39,13 @@ app.use(
     })
 );
 
+//------------ Passport Middlewares ------------//
+app.use(passport.initialize());
+app.use(passport.session());
+
 //------------ Routes ------------//
-app.use('/api', routes);
+app.use('/api', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
 
 //------------ middleware ------------//
 app.use(require('./middlewares/ErrorHandler'))

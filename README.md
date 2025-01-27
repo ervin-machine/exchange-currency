@@ -1,113 +1,306 @@
-
-# **Currency Exchange Platform**
-
+# **Your Fully Autonomous AI [Research Agent]**
 ## **Website**
 
-[Exchange Currency Platform Repository](https://github.com/ervin-machine/exchange-currency)
+  https://nyxcipher.ai/
 
-## **Table of Contents**
+## **Table of contents**
 
-- [Currency Exchange Platform](#)
+- [NYX Cipher](#)
   - [Introduction](#introduction)
-    - [Backend Services](#backend-services)
-    - [Frontend Application](#frontend-application)
-  - [Codebase Overview](#codebase-overview)
+    - [Tracking](#tracking)
+    - [Daily Reports](#daily-reports)
+    - [Auto Trading Bot](#auto-trading-bot)
+    - [Collecting Data](#collecting-data)
+    - [Influencer Watchdog](#influencer-watchdog)
+  - [NYX Cipher Codebase](#nyx-cipher-codebase)
     - [Prerequisites](#prerequisites)
     - [Getting Started](#getting-started)
     - [Installation](#installation)
     - [Usage](#usage)
     - [What's New](#new-update-⚠️)
+  - [Exchange Currency API](#exchange-currency-API)
+    - [Introduction and Features](#exchange-currency-api)  
+    - [Prerequisites](#prerequisites)  
+    - [Installation Steps](#installation)  
+    - [API Endpoints](#api-endpoints)  
+      - [Convert Currency Endpoint](#1-convert-currency)  
+      - [Get Currency Codes Endpoint](#2-get-currency-codes)  
+    - [Code Structure](#code-structure)  
+      - [Service Layer](#1-service-layer)  
+      - [Controller Layer](#2-controller-layer)  
+      - [Route Layer](#3-route-layer)  
+      - [Validation Layer](#4-validation-layer)  
+    - [Example Usage](#example-usage)  
+      - [Convert Currency Example](#convert-currency)  
+      - [Fetch Currency Codes Example](#fetch-currency-codes)  
+    - [Testing](#testing)  
+      - [Running Tests](#running-tests)  
+      - [Test Coverage](#test-coverage)  
 
----
+# **Introduction**
+## **Tracking**
 
-## **Introduction**
+Nyx, your ultimate AI research assistant, plunges into the dynamic world of cryptocurrency. From monitoring community sentiment to tracking influencer buzz. With Nyx's sharp detection of scams and bots, invest with confidence, knowing you're shielded by the most vigilant guardian in the digital realm.
 
-The **Currency Exchange Platform** is a full-stack application designed to provide real-time exchange rate information and currency conversion functionalities. The platform consists of a backend API service built with Node.js and an interactive frontend application powered by modern frameworks like React using vite.
+## **Daily Reports**
 
-### **Backend Services**
-The backend API, built in Node.js, is responsible for handling:
-- Real-time exchange rate retrieval from external APIs.
-- Secure data transfer with CORS.
-- Scalable architecture for robust handling of requests.
+Nyx plunges into the digital realm, extracting insights from community chats and influencers. Unlike biased sources, Nyx delivers truthful daily reports, revealing all facets of the cryptocurrency projects you care about. With Nyx, expect transparent insights, free from manipulation or hidden agendas.
 
-### **Frontend Application**
-The frontend, built with React with Vite, is a highly interactive user interface offering:
-- A clean and intuitive design for converting currencies.
-- Responsive layouts for mobile and desktop platforms.
-- Smooth API integration for fetching exchange rates.
+## **Auto Trading Bot**
 
----
+Nyx Cipher, the ultimate crypto strategist, analyzes market sentiment and influencer trends to make profitable trades. Leveraging AI and extensive metrics, Nyx identifies lucrative opportunities, particularly in early projects driven by social media buzz. Join Nyx's journey to maximize your crypto investments with precision and confidence.
 
-## **Codebase Overview**
+## **Collecting Data**
 
-### **Prerequisites**
+Visualize a digital oracle parsing through 1,000 videos, 10,000 tweets, and 2 million messages each day, separating signal from noise to unveil essential crypto truths. Nyx Cipher commands this remarkable skill, empowering you with indispensable intelligence for conquering the crypto domain.
 
-* NOTE: Check .env.example based on that example create your .env file with your API Keys
+## **Influencer Watchdog**
 
-Ensure the following tools are installed on your machine:
-- **Node.js** (v20+ recommended)
-- **npm** (v7+ for workspace support)
+Nyx, the shadow detective of the crypto realm, stalks influencers and bot networks seeking to fill their bags. With his cyber-enhanced senses, he deciphers sentiment and traces price shifts. Nyx evaluates influencer integrity, never overlooking those who shilled FTX and then disappeared.
 
-Verify your setup by running:
-```bash
+##
+
+## **NYX Cipher Codebase**
+
+## **Prerequisites**
+
+This project requires NodeJS (version 8 or later) and NPM.
+[Node](http://nodejs.org/) and [NPM](https://npmjs.org/) are really easy to install.
+To make sure you have them available on your machine,
+try running the following command.
+
+```sh
 $ npm -v && node -v
-v7.0.0
-v22.13.0
+v 10.5.0
+v 20.10.0
 ```
 
----
+## **Getting Started**
 
-### **Getting Started**
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Follow these instructions to get a local copy of the project up and running for development and testing.
+## **Installation**
 
-### **Installation**
+**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 
-#### Step 1: Clone the Repository
-Clone the project to your local machine:
-```bash
-$ git clone https://github.com/ervin-machine/exchange-currency.git
-$ cd exchange-currency
+Start with cloning this repo on your local machine:
+
+```sh
+$ git clone https://bitbucket-private-repo
 ```
 
-#### Step 2: Install Dependencies
-Install all workspace dependencies:
-```bash
+To install and set up the library, run:
+
+```sh
+$ node --version
 $ npm install
 ```
+## **Usage**
 
-This command will install dependencies for both:
-- `currency-exchange-backend`
-- `currency-exchange-frontend`
+### Serving the app
 
----
+```sh
+$ npm start
+```
+### Running the tests
 
-### **Usage**
-
-#### Start Services Individually
-To start just the backend service:
-```bash
-$ npm run start:backend
+```sh
+$ npm test
 ```
 
-To start just the frontend service:
-```bash
-$ npm run start:frontend
+### Building a distribution version
+
+```sh
+$ npm run build
 ```
 
-#### Run in Development Mode
-Backend with nodemon:
-```bash
-$ npm run dev --workspace=backend
+This task will create a distribution version of the project
+inside your local `dist/` folder
+
+## **New Update ⚠️**
+
+We'd like to inform you of important changes to our distribution repository [nodesource/distributions](https://github.com/nodesource/distributions).
+
+**What's New:**
+
+- _**Package Changes:** DEB and RPM packages are now available under the `nodistro` codename. We no longer package the installer coupled to specific versions. This means you can install Node.js on almost any distro that meets the minimum requirements._
+- **Installation Scripts:** Back by popular demand, the installation scripts have returned and are better than ever. See the installation instructions below for details on how to use them.
+- **RPM Package Signing Key:** The key used to sign RPM packages has changed. We now sign packages using SHA256, providing better support to the community.
+- **Questions and concerns:** To resolve questions and discuss concerns about this update we've opened this discussion space [New distribution&#39;s packages](https://github.com/nodesource/distributions/discussions/#123456)
+
+# Exchange Currency API
+
+This project provides a **Exchange Currency API** that enables users to convert amounts between different currencies using live exchange rates fetched from an external API. It also allows users to retrieve the list of available currency codes for conversions.
+
+## Features
+
+### **Exchange Currency**  
+   Converts a specified amount from one currency to another using live exchange rates.
+   
+### **Retrieve Currency Codes**  
+   Fetches a list of available currency codes supported by the exchange API.
+
+### **Validation**  
+   Ensures that incoming requests are properly structured and include all necessary parameters.
+
+## Getting Started
+
+### Prerequisites
+- **Node.js** version 20 or higher.
+- **npm** (Node Package Manager).
+- An external exchange API key (if required).
+
+### Installation
+
+#### Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+#### Install dependencies:
+   ```bash
+   npm install
+   ```
+
+#### Set up environment variables:  
+   Create a `.env` file in the root directory and add the required API configuration.  
+   Example:
+   ```
+   EXCHANGE_CURRENCY_API = https://v6.exchangerate-api.com/v6/YOUR-API-KEY
+   ```
+
+#### Run the application:
+   ```bash
+   npm run start:backend
+   ```
+
+### API Endpoints
+
+#### **Convert Currency**  
+   Converts an amount from one currency to another.  
+   **POST** `/api/currency/exchange`  
+
+   **Request Body:**
+   ```json
+   {
+     "sourceCurrency": "EUR",
+     "targetCurrency": "GBP",
+     "amount": 100
+   }
+   ```
+
+   **Response:**
+   ```json
+   {
+	  "result": "success",
+	  "documentation": "https://www.exchangerate-api.com/docs",
+	  "terms_of_use": "https://www.exchangerate-api.com/terms",
+	  "time_last_update_unix": 1585267200,
+	  "time_last_update_utc": "Fri, 27 Mar 2020 00:00:00 +0000",
+	  "time_next_update_unix": 1585270800,
+	  "time_next_update_utc": "Sat, 28 Mar 2020 01:00:00 +0000",
+	  "base_code": "EUR",
+	  "target_code": "GBP",
+	  "conversion_rate": 0.8412,
+	  "conversion_result": 84.13
+  }
+   ```
+
+#### **Get Currency Codes**  
+   Retrieves the list of available currency codes.  
+   **GET** `/api/currency/codes`
+
+   **Response:**
+   ```json
+   {
+     "codes": [
+       ["USD", "United States Dollar"],
+       ["EUR", "Euro"],
+       ["GBP", "British Pound"]
+     ]
+   }
+   ```
+
+## Code Structure
+
+### ** Service Layer**
+Handles business logic and interacts with the external exchange rate API.
+
+- **File:** `services/currencyService.js`  
+- **Functions:**
+  - `exchangeCurrency(body)`  
+    Converts currency by calling the external API.
+  - `getCurrencyCodes()`  
+    Retrieves available currency codes from the external API.
+
+### ** Controller Layer**
+Handles incoming requests and responses.
+
+- **File:** `controllers/CurrencyController.js`  
+- **Functions:**
+  - `exchangeCurrency(req, res)`  
+    Processes requests for Exchange Currency.
+  - `getCurrencyCodes(req, res)`  
+    Fetches currency codes and returns them to the client.
+
+### ** Route Layer**
+Defines the API endpoints and assigns corresponding controllers.
+
+- **File:** `routes/currency.js`  
+- **Endpoints:**
+  - `/exchange` (POST): Calls `exchangeCurrency` controller.
+  - `/codes` (GET): Calls `getCurrencyCodes` controller.
+
+### ** Validation Layer**
+Ensures API requests are well-formed.
+
+- **File:** `validators/CurrencyValidator.js`  
+- **Validation Schema:**
+  - `exchangeCurrency`: Validates the request body for `/exchange`.
+
+## Example Usage
+
+### Convert Currency
+```javascript
+const axios = require('axios');
+
+const requestBody = {
+  sourceCurrency: 'USD',
+  targetCurrency: 'EUR',
+  amount: 100,
+};
+
+axios
+  .post('http://localhost:3000/api/currency/exchange', requestBody)
+  .then((response) => {
+    console.log('Converted Currency:', response.data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 ```
 
----
+### Fetch Currency Codes
+```javascript
+const axios = require('axios');
 
-### **Test**
+axios
+  .get('http://localhost:3000/api/currency/codes')
+  .then((response) => {
+    console.log('Available Codes:', response.data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+```
+
+## Testing
+
 
 Running Tests
 
-To ensure your code works as expected, you can run tests for both the frontend and backend services.
+To ensure your code works as expected, you can run tests for backend services.
 Running Backend Tests
 
 To run the backend tests, simply run:
@@ -115,43 +308,13 @@ To run the backend tests, simply run:
 $ npm run test:backend
 ```
 
-This command will execute the tests defined for the backend using Jest.
-Running Frontend Tests
-
-To run the frontend tests, use:
-```bash
-$ npm run test:frontend
-```
-
-This will run the frontend tests using Jest in a JS DOM environment.
-Running All Tests (Frontend & Backend)
-
-To run tests for both the frontend and backend services simultaneously, use:
-```bash
-$ npm test
-```
-
-This will execute the Jest tests for both workspaces.
 Test Coverage
 
-To generate a test coverage report for either frontend or backend, use:
-
-For frontend:
-```bash
-$ npm run coverage:frontend
-```
+To generate a test coverage report for backend, use:
 
 For backend:
 ```bash
 $ npm run coverage:backend
 ```
 
-
-### **What's New ⚠️**
-
-Recent updates to the Currency Exchange Platform include:
-- **Backend Enhancements:** Added better error handling and logging.
-- **Frontend Improvements:** Vite integration for faster builds.
-- **Workspace Optimization:** Dependencies are now managed at the root level for streamlined installations.
-
-Stay updated by checking the repository regularly for more features and improvements.
+---

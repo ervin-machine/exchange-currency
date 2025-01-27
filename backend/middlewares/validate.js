@@ -35,10 +35,8 @@
  */
 
 const Joi = require('joi');
-const httpStatus = require('http-status');
 const pick = require('../utils/pick');
-const ApiError = require('../utils/apiError');
-
+const { BadRequestError } = require('../utils/errors')
 const validate = (schema) => (req, res, next) => {
   // Extract relevant schemas for validation
   const validSchema = pick(schema, ['params', 'query', 'body']);
@@ -52,7 +50,7 @@ const validate = (schema) => (req, res, next) => {
   // Handle validation errors
   if (error) {
     const errorMessage = error.details.map((details) => details.message).join(', ');
-    return next(new ApiError(httpStatus.BAD_REQUEST, errorMessage));
+    return next(BadRequestError(errorMessage));
   }
 
   // Assign validated values back to the request object and proceed
