@@ -38,16 +38,18 @@
 
 const { apiClient } = require('../utils/api')
 const { BadRequestError } = require('../utils/errors')
+const ENDPOINTS = require('../constants/endpoints');
 
 exports.exchangeCurrency = async (body) => {
     const { sourceCurrency, targetCurrency, amount } = body;
-    const exchangedCurrency = await apiClient.get(`/pair/${sourceCurrency}/${targetCurrency}/${amount}`);
+    
+    const exchangedCurrency = await apiClient.get(`${ENDPOINTS.CURRENCY.PAIR}/${sourceCurrency}/${targetCurrency}/${amount}`);
     if (!exchangedCurrency) throw BadRequestError('Invalid target currency');
     return exchangedCurrency.data
 }
 
 exports.getCurrencyCodes = async () => {
-    const currencyCodes = await apiClient.get('/codes');
+    const currencyCodes = await apiClient.get(ENDPOINTS.CURRENCY.CODES);
     if (!currencyCodes) throw BadRequestError('Invalid request');
     return currencyCodes.data
 }
