@@ -154,8 +154,8 @@ This project provides a **Exchange Currency API** that enables users to convert 
 
 #### Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/ervin-machine/exchange-currency.git
+   cd exchange-currency
    ```
 
 #### Install dependencies:
